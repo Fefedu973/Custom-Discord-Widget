@@ -359,3 +359,21 @@ li {
 	text-align: right;
 	line-height: 1;
 }
+::-webkit-scrollbar {
+    width: 10px
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 100%, .1)
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track-piece {
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 5px
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: transparent
+}
