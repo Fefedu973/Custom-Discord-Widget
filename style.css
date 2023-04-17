@@ -184,6 +184,7 @@ body {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	flex: 1;
 }
 
 .user .bot--tag {
@@ -227,17 +228,14 @@ body {
 }
 
 .user--game {
-	order: 5;
-	flex-grow: 1;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	position: relative;
 	font-size: 14px;
+	text-align: right;
 	color: #4f545c;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	-webkit-box-flex: 1;
+	flex: 1;
 }
 
 ul,
@@ -356,4 +354,8 @@ li {
 	color: #8A8E94;
 	margin: 0px;
 	margin-bottom: 12px;
+}
+.countdebug {
+	text-align: right;
+	line-height: 1;
 }

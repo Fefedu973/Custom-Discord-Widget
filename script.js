@@ -163,16 +163,15 @@ function discordAPI() {
 
             userGame.innerText = users[n].game.name;
           }
-
-          userWrap.appendChild(userGame);
           userImage.classList.add('user--image');
           userImage.setAttribute('src', data.members[n].avatar_url);
-
           imageWrap.appendChild(userStatus);
           imageWrap.appendChild(userImage)
           userWrap.appendChild(imageWrap);
           userWrap.appendChild(userName);
-
+          if (users[n].game !== undefined) {
+            userWrap.appendChild(userGame);
+          }
           userBody.appendChild(userWrap);
 
         }
