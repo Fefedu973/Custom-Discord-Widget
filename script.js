@@ -6,6 +6,19 @@ const userCountElement = document.getElementById("user-count");
 let userCount = 0;
 var joinbutton = document.querySelector('.joinbutton');
 var nameHeader = document.querySelector('.servername');
+var footer = document.querySelector('.footer');
+var userBodyDebug = document.querySelector('.users--body');
+var theme = 'dark';
+
+document.documentElement.style.setProperty('--scrollbar-thumb-color', ' hsla(0, 0%, 100%, .1)');
+
+if(theme === 'light'){
+  joinbutton.classList.add('joinbuttonwhite');
+  footer.classList.add('footerwhite');
+  userBodyDebug.classList.add('users--bodywhite');
+  //change the color of the scroll bar to white
+  document.documentElement.style.setProperty('--scrollbar-thumb-color', ' rgba(0, 0, 0, .1)');
+}
 
 function discordAPI() {
   var init = {
@@ -13,8 +26,9 @@ function discordAPI() {
     mode: 'cors',
     cache: 'reload'
   }
-
-  fetch('https://discordapp.com/api/guilds/807892248935006208/widget.json', init).then(function (response) {
+  
+  fetch('testchannel.json', init).then(function (response) {
+  //fetch('https://discordapp.com/api/guilds/807892248935006208/widget.json', init).then(function (response) {
     if (response.status != 200) {
       console.log("it didn't work" + response.status);
       return
@@ -41,6 +55,9 @@ function discordAPI() {
         for (let i = 0; i < data.channels.length; i++) {
           let li = document.createElement('li');
           li.classList.add('channel--name');
+          if(theme === 'light'){
+            li.classList.add('channel--namewhite');
+          }
           li.innerHTML = "<p class='channeltitle'>" + data.channels[i].name + "</p>";
           liWrap.appendChild(li);
           channelBody.appendChild(liWrap);
@@ -131,6 +148,9 @@ function discordAPI() {
           imageWrap.classList.add('image--wrap');
 
           userGame.classList.add('user--game');
+          if(theme === 'light'){
+            userGame.classList.add('user--gamewhite');
+          }
 
           botTag.classList.add('bot--tag');
 
@@ -146,12 +166,21 @@ function discordAPI() {
 
           if (users[n].status === 'online') {
             userStatus.classList.add('status--online')
+            if(theme === 'light'){
+              userStatus.classList.add('status--onlinewhite')
+            }
           }
           if (users[n].status === 'idle') {
             userStatus.classList.add('status--idle');
+            if(theme === 'light'){
+              userStatus.classList.add('status--idlewhite');
+            }
           }
           if (users[n].status === 'dnd') {
             userStatus.classList.add('status--dnd');
+            if(theme === 'light'){
+              userStatus.classList.add('status--dndwhite');
+            }
           }
 
           if (users[n].bot === true) {
