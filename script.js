@@ -27,8 +27,8 @@ function discordAPI() {
     cache: 'reload'
   }
   
-  fetch('testchannel.json', init).then(function (response) {
-  //fetch('https://discordapp.com/api/guilds/807892248935006208/widget.json', init).then(function (response) {
+  //fetch('testchannel.json', init).then(function (response) {
+  fetch('https://discordapp.com/api/guilds/807892248935006208/widget.json', init).then(function (response) {
     if (response.status != 200) {
       console.log("it didn't work" + response.status);
       return
